@@ -26,7 +26,6 @@ dependencies {
     // https://mvnrepository.com/artifact/org.testng/testng
     testImplementation 'org.testng:testng:6.14.3'
 
-    
     //https://mvnrepository.com/artifact/io.cucumber/cucumber-java 
     implementation 'io.cucumber:cucumber-java:7.17.0'
     
@@ -39,6 +38,6 @@ dependencies {
 
 
 tasks.named('test') {
-    // Use JUnit Platform for unit tests.
-    useJUnitPlatform()
+   systemProperty "cucumber.options", System.getProperty("cucumber.options");
+   systemProperties System.getProperties();
 }
