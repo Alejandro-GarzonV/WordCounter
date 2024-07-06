@@ -44,8 +44,12 @@ public class BasePage {
         Find(locator).sendKeys(KeyToSend);
     }
 
-    public String getText(String locator) {
+    public String getTexto(String locator) {
         return Find(locator).getText();
+    }
+
+    public int getNumericos(String locator) {
+        return Integer.parseInt(getTexto(locator));
     }
 
 }
