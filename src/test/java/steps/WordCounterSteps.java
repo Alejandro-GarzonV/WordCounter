@@ -1,6 +1,8 @@
 package steps;
 
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -23,8 +25,16 @@ public class WordCounterSteps {
     }
 
     @Then ("entonces visualiza el recuento de palabras en {string}")
-    public void seeWords(String expectedCount){
-        soft.assertEquals(wc.getContadorPalabras(),expectedCount);
+    public void seeWords(String expectedCountW){
+        soft.assertEquals(wc.getContadorPalabras(),expectedCountW);
+        //Assert.assertEquals(wc.getContadorPalabras(),expectedCountW);
     }
+
+    @Then ("visualiza el recuento de caracteres en {string}")
+    public void seeCharacters(String expectedCountC){
+        soft.assertEquals(wc.getContadorCaracter(),expectedCountC);
+        //Assert.assertEquals(wc.getContadorCaracter(),expectedCountC);
+    }
+
 
 }
