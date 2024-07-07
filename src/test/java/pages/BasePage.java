@@ -8,6 +8,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import java.time.*;
+import java.util.List;
+
 
 public class BasePage {
     protected static WebDriver driver;
@@ -48,8 +50,28 @@ public class BasePage {
         return Find(locator).getText();
     }
 
-    public int getNumericos(String locator) {
-        return Integer.parseInt(getTexto(locator));
-    }
+    public String getDensidadPalabras(String locator, int topW) {
+        // Crear un StringBuilder para almacenar las palabras y sus respectivos conteos.
+        StringBuilder topWords = new StringBuilder();
 
+        // Encontrar los elementos que coinciden con el locator XPath dentro de una lista
+        List<WebElement> palabras = driver.findElements(By.xpath(locator));
+        
+        // Definir un límite para iterar hasta un máximo de 3 elementos, o menos si hay menos de 3 elementos.
+        int limit = Math.min(palabras.size(), topW);
+        for (int i = 0; i < limit; i++) {
+            WebElement palabra = palabras.get(i);
+            WebElement badgeElement = palabra.findElement(By.className("badge"));
+            WebElement wordElement = palabra.findElement(By.className("word"));
+            String word = wordElement.getText();
+            // Obtener el texto del elemento 'badge', dividirlo por espacios, y extraer solo el número.
+            String badgeText = badgeElement.getText().split(" ")[0];
+            int count = Integer.parseInt(badgeText);
+            if (i > 0) {
+                topWords.append(";");
+            }
+            topWords.append(word).append(",").append(count);
+        }
+        return topWords.toString();
+    }
 }

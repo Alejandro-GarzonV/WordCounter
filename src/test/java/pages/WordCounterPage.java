@@ -1,12 +1,14 @@
 package pages;
 
+
 public class WordCounterPage  extends BasePage{
     
     private String contenedorTexto = "//textarea[@id='box']"; 
     private String contadorPalabras = "//span[@id='word_count']";
     private String contadorCaracter = "//span[@id='character_count']";
-    private String repeticionPalabras = "//div[@id='kwd-density']";
-
+    private int topW= 3;
+    private String palabrasRepetidas = "//div[@id='kwd-accordion-data']/a[position() <= "+topW+"]";
+    
     public WordCounterPage() {
         super(driver);
     }
@@ -28,4 +30,7 @@ public class WordCounterPage  extends BasePage{
         return getTexto(contadorCaracter);
     }
 
+    public String getDensidadPalabrasEnPagina() {
+        return getDensidadPalabras(palabrasRepetidas,topW);
+    }
 }
