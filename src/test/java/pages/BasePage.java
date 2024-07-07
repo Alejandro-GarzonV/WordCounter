@@ -37,10 +37,6 @@ public class BasePage {
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
     }
 
-    public void clickElement (String locator){
-        Find(locator).click();
-    }
-
     public void  write (String locator, String KeyToSend){
         Find(locator).clear();
         Find(locator).sendKeys(KeyToSend);
@@ -57,7 +53,7 @@ public class BasePage {
         // Encontrar los elementos que coinciden con el locator XPath dentro de una lista
         List<WebElement> palabras = driver.findElements(By.xpath(locator));
         
-        // Definir un límite para iterar hasta un máximo de 3 elementos, o menos si hay menos de 3 elementos.
+        // Definir un límite para iterar hasta un máximo de # elementos, o menos si hay menos de # elementos.
         int limit = Math.min(palabras.size(), topW);
         for (int i = 0; i < limit; i++) {
             WebElement palabra = palabras.get(i);
