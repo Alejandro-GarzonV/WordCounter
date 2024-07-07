@@ -1,0 +1,10 @@
+Cantidad de palabras: 16
+Cantidad de caracteres: 119
+
+Histograma de palabras:
+lumu: 6
+illuminates: 3
+attacks: 2
+and: 2
+adversaries: 2
+all: 1
