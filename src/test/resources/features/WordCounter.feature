@@ -26,3 +26,4 @@ Feature: Validar la funcionalidad del contador de palabras
         Examples:
             | texto|palabrasClave|   
             | "Si oyes en la noche la voz De la soledad y el rumor Que ha llegado el tiempo De ser dos... aqui estoy! Ten mi mano, aprietala bien Ten mi hombro, apoyate en el Y a donde nos lleve el viaje ire Contigo ire de el de"|"el,5;de,4;la,3"|
+    

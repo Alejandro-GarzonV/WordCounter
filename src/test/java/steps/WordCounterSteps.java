@@ -36,8 +36,6 @@ public class WordCounterSteps {
     @Then ("visualiza el recuento de palabras mas usadas {string}")
     public void densityWords(String expectedDensity){
         String actualDensity = wc.getDensidadPalabrasEnPagina();
-        System.out.println("Densidad esperada: " + expectedDensity);
-        System.out.println("Densidad actual: " + actualDensity);
         Assert.assertEquals(actualDensity, expectedDensity, "La densidad de palabras coincide exactamente.");
     }
 }
